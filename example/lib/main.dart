@@ -22,7 +22,7 @@ class MainApp extends StatelessWidget {
               mainAxisSize: MainAxisSize.min,
               spacing: 8,
               children: [
-                // Elevated
+                /////////////////////////// Elevated ///////////////////////////
                 Row(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -30,15 +30,15 @@ class MainApp extends StatelessWidget {
                   children: [
                     ButtonVariant(
                       icon: Icons.dashboard,
-                      iconPlacement: IconPlacement.top,
                       textStyle: Theme.of(context).textTheme.titleLarge,
                       tooltip: 'A cool tooltip',
                       type: ButtonTypes.elevated,
-                      onPressed: () {},
+                      onPressed: () async {
+                        await Future.delayed(Duration(seconds: 2));
+                      },
                     ),
                     ButtonVariant(
                       icon: Icons.dashboard,
-                      iconPlacement: IconPlacement.top,
                       textStyle: Theme.of(context).textTheme.titleLarge,
                       tooltip: 'A cool tooltip',
                       type: ButtonTypes.elevated,
@@ -58,7 +58,9 @@ class MainApp extends StatelessWidget {
                       textStyle: Theme.of(context).textTheme.titleLarge,
                       tooltip: 'A cool tooltip',
                       type: ButtonTypes.elevated,
-                      onPressed: () {},
+                      onPressed: () async {
+                        await Future.delayed(Duration(seconds: 2));
+                      },
                     ),
                     ButtonVariant(
                       icon: Icons.dashboard,
@@ -67,7 +69,9 @@ class MainApp extends StatelessWidget {
                       textStyle: Theme.of(context).textTheme.titleLarge,
                       tooltip: 'A cool tooltip',
                       type: ButtonTypes.elevated,
-                      onPressed: () {},
+                      onPressed: () async {
+                        await Future.delayed(Duration(seconds: 2));
+                      },
                     ),
                   ],
                 ),
@@ -76,15 +80,6 @@ class MainApp extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   spacing: 8,
                   children: [
-                    ButtonVariant(
-                      icon: Icons.dashboard,
-                      label: 'Label',
-                      iconPlacement: IconPlacement.right,
-                      textStyle: Theme.of(context).textTheme.titleLarge,
-                      tooltip: 'A cool tooltip',
-                      type: ButtonTypes.elevated,
-                      onPressed: null,
-                    ),
                     ButtonVariant(
                       icon: Icons.dashboard,
                       label: 'Label',
@@ -94,9 +89,18 @@ class MainApp extends StatelessWidget {
                       type: ButtonTypes.elevated,
                       onPressed: null,
                     ),
+                    ButtonVariant(
+                      icon: Icons.dashboard,
+                      label: 'Label',
+                      iconPlacement: IconPlacement.right,
+                      textStyle: Theme.of(context).textTheme.titleLarge,
+                      tooltip: 'A cool tooltip',
+                      type: ButtonTypes.elevated,
+                      onPressed: null,
+                    ),
                   ],
                 ),
-                // Filled
+                //////////////////////////// Filled ////////////////////////////
                 Row(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -104,15 +108,15 @@ class MainApp extends StatelessWidget {
                   children: [
                     ButtonVariant(
                       icon: Icons.dashboard,
-                      iconPlacement: IconPlacement.top,
                       textStyle: Theme.of(context).textTheme.titleLarge,
                       tooltip: 'A cool tooltip',
                       type: ButtonTypes.filled,
-                      onPressed: () {},
+                      onPressed: () async {
+                        await Future.delayed(Duration(seconds: 2));
+                      },
                     ),
                     ButtonVariant(
                       icon: Icons.dashboard,
-                      iconPlacement: IconPlacement.top,
                       textStyle: Theme.of(context).textTheme.titleLarge,
                       tooltip: 'A cool tooltip',
                       type: ButtonTypes.filled,
@@ -132,7 +136,9 @@ class MainApp extends StatelessWidget {
                       textStyle: Theme.of(context).textTheme.titleLarge,
                       tooltip: 'A cool tooltip',
                       type: ButtonTypes.filled,
-                      onPressed: () {},
+                      onPressed: () async {
+                        await Future.delayed(Duration(seconds: 2));
+                      },
                     ),
                     ButtonVariant(
                       icon: Icons.dashboard,
@@ -141,7 +147,9 @@ class MainApp extends StatelessWidget {
                       textStyle: Theme.of(context).textTheme.titleLarge,
                       tooltip: 'A cool tooltip',
                       type: ButtonTypes.filled,
-                      onPressed: () {},
+                      onPressed: () async {
+                        await Future.delayed(Duration(seconds: 2));
+                      },
                     ),
                   ],
                 ),
@@ -150,15 +158,6 @@ class MainApp extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   spacing: 8,
                   children: [
-                    ButtonVariant(
-                      icon: Icons.dashboard,
-                      label: 'Label',
-                      iconPlacement: IconPlacement.right,
-                      textStyle: Theme.of(context).textTheme.titleLarge,
-                      tooltip: 'A cool tooltip',
-                      type: ButtonTypes.filled,
-                      onPressed: null,
-                    ),
                     ButtonVariant(
                       icon: Icons.dashboard,
                       label: 'Label',
@@ -168,9 +167,18 @@ class MainApp extends StatelessWidget {
                       type: ButtonTypes.filled,
                       onPressed: null,
                     ),
+                    ButtonVariant(
+                      icon: Icons.dashboard,
+                      label: 'Label',
+                      iconPlacement: IconPlacement.right,
+                      textStyle: Theme.of(context).textTheme.titleLarge,
+                      tooltip: 'A cool tooltip',
+                      type: ButtonTypes.filled,
+                      onPressed: null,
+                    ),
                   ],
                 ),
-                // Tonal
+                //////////////////////////// Tonal /////////////////////////////
                 Row(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -178,15 +186,15 @@ class MainApp extends StatelessWidget {
                   children: [
                     ButtonVariant(
                       icon: Icons.dashboard,
-                      iconPlacement: IconPlacement.top,
                       textStyle: Theme.of(context).textTheme.titleLarge,
                       tooltip: 'A cool tooltip',
                       type: ButtonTypes.tonal,
-                      onPressed: () {},
+                      onPressed: () async {
+                        await Future.delayed(Duration(seconds: 2));
+                      },
                     ),
                     ButtonVariant(
                       icon: Icons.dashboard,
-                      iconPlacement: IconPlacement.top,
                       textStyle: Theme.of(context).textTheme.titleLarge,
                       tooltip: 'A cool tooltip',
                       type: ButtonTypes.tonal,
@@ -206,7 +214,9 @@ class MainApp extends StatelessWidget {
                       textStyle: Theme.of(context).textTheme.titleLarge,
                       tooltip: 'A cool tooltip',
                       type: ButtonTypes.tonal,
-                      onPressed: () {},
+                      onPressed: () async {
+                        await Future.delayed(Duration(seconds: 2));
+                      },
                     ),
                     ButtonVariant(
                       icon: Icons.dashboard,
@@ -215,7 +225,9 @@ class MainApp extends StatelessWidget {
                       textStyle: Theme.of(context).textTheme.titleLarge,
                       tooltip: 'A cool tooltip',
                       type: ButtonTypes.tonal,
-                      onPressed: () {},
+                      onPressed: () async {
+                        await Future.delayed(Duration(seconds: 2));
+                      },
                     ),
                   ],
                 ),
@@ -224,15 +236,6 @@ class MainApp extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   spacing: 8,
                   children: [
-                    ButtonVariant(
-                      icon: Icons.dashboard,
-                      label: 'Label',
-                      iconPlacement: IconPlacement.right,
-                      textStyle: Theme.of(context).textTheme.titleLarge,
-                      tooltip: 'A cool tooltip',
-                      type: ButtonTypes.tonal,
-                      onPressed: null,
-                    ),
                     ButtonVariant(
                       icon: Icons.dashboard,
                       label: 'Label',
@@ -242,9 +245,18 @@ class MainApp extends StatelessWidget {
                       type: ButtonTypes.tonal,
                       onPressed: null,
                     ),
+                    ButtonVariant(
+                      icon: Icons.dashboard,
+                      label: 'Label',
+                      iconPlacement: IconPlacement.right,
+                      textStyle: Theme.of(context).textTheme.titleLarge,
+                      tooltip: 'A cool tooltip',
+                      type: ButtonTypes.tonal,
+                      onPressed: null,
+                    ),
                   ],
                 ),
-                // Outlined
+                /////////////////////////// Outlined ///////////////////////////
                 Row(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -252,15 +264,15 @@ class MainApp extends StatelessWidget {
                   children: [
                     ButtonVariant(
                       icon: Icons.dashboard,
-                      iconPlacement: IconPlacement.top,
                       textStyle: Theme.of(context).textTheme.titleLarge,
                       tooltip: 'A cool tooltip',
                       type: ButtonTypes.outlined,
-                      onPressed: () {},
+                      onPressed: () async {
+                        await Future.delayed(Duration(seconds: 2));
+                      },
                     ),
                     ButtonVariant(
                       icon: Icons.dashboard,
-                      iconPlacement: IconPlacement.top,
                       textStyle: Theme.of(context).textTheme.titleLarge,
                       tooltip: 'A cool tooltip',
                       type: ButtonTypes.outlined,
@@ -280,7 +292,9 @@ class MainApp extends StatelessWidget {
                       textStyle: Theme.of(context).textTheme.titleLarge,
                       tooltip: 'A cool tooltip',
                       type: ButtonTypes.outlined,
-                      onPressed: () {},
+                      onPressed: () async {
+                        await Future.delayed(Duration(seconds: 2));
+                      },
                     ),
                     ButtonVariant(
                       icon: Icons.dashboard,
@@ -289,7 +303,9 @@ class MainApp extends StatelessWidget {
                       textStyle: Theme.of(context).textTheme.titleLarge,
                       tooltip: 'A cool tooltip',
                       type: ButtonTypes.outlined,
-                      onPressed: () {},
+                      onPressed: () async {
+                        await Future.delayed(Duration(seconds: 2));
+                      },
                     ),
                   ],
                 ),
@@ -298,15 +314,6 @@ class MainApp extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   spacing: 8,
                   children: [
-                    ButtonVariant(
-                      icon: Icons.dashboard,
-                      label: 'Label',
-                      iconPlacement: IconPlacement.right,
-                      textStyle: Theme.of(context).textTheme.titleLarge,
-                      tooltip: 'A cool tooltip',
-                      type: ButtonTypes.outlined,
-                      onPressed: null,
-                    ),
                     ButtonVariant(
                       icon: Icons.dashboard,
                       label: 'Label',
@@ -316,9 +323,18 @@ class MainApp extends StatelessWidget {
                       type: ButtonTypes.outlined,
                       onPressed: null,
                     ),
+                    ButtonVariant(
+                      icon: Icons.dashboard,
+                      label: 'Label',
+                      iconPlacement: IconPlacement.right,
+                      textStyle: Theme.of(context).textTheme.titleLarge,
+                      tooltip: 'A cool tooltip',
+                      type: ButtonTypes.outlined,
+                      onPressed: null,
+                    ),
                   ],
                 ),
-                // Text
+                ///////////////////////////// Text /////////////////////////////
                 Row(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -326,15 +342,15 @@ class MainApp extends StatelessWidget {
                   children: [
                     ButtonVariant(
                       icon: Icons.dashboard,
-                      iconPlacement: IconPlacement.top,
                       textStyle: Theme.of(context).textTheme.titleLarge,
                       tooltip: 'A cool tooltip',
                       type: ButtonTypes.text,
-                      onPressed: () {},
+                      onPressed: () async {
+                        await Future.delayed(Duration(seconds: 2));
+                      },
                     ),
                     ButtonVariant(
                       icon: Icons.dashboard,
-                      iconPlacement: IconPlacement.top,
                       textStyle: Theme.of(context).textTheme.titleLarge,
                       tooltip: 'A cool tooltip',
                       type: ButtonTypes.text,
@@ -354,7 +370,9 @@ class MainApp extends StatelessWidget {
                       textStyle: Theme.of(context).textTheme.titleLarge,
                       tooltip: 'A cool tooltip',
                       type: ButtonTypes.text,
-                      onPressed: () {},
+                      onPressed: () async {
+                        await Future.delayed(Duration(seconds: 2));
+                      },
                     ),
                     ButtonVariant(
                       icon: Icons.dashboard,
@@ -363,7 +381,9 @@ class MainApp extends StatelessWidget {
                       textStyle: Theme.of(context).textTheme.titleLarge,
                       tooltip: 'A cool tooltip',
                       type: ButtonTypes.text,
-                      onPressed: () {},
+                      onPressed: () async {
+                        await Future.delayed(Duration(seconds: 2));
+                      },
                     ),
                   ],
                 ),
@@ -375,7 +395,7 @@ class MainApp extends StatelessWidget {
                     ButtonVariant(
                       icon: Icons.dashboard,
                       label: 'Label',
-                      iconPlacement: IconPlacement.right,
+                      iconPlacement: IconPlacement.bottom,
                       textStyle: Theme.of(context).textTheme.titleLarge,
                       tooltip: 'A cool tooltip',
                       type: ButtonTypes.text,
@@ -384,7 +404,7 @@ class MainApp extends StatelessWidget {
                     ButtonVariant(
                       icon: Icons.dashboard,
                       label: 'Label',
-                      iconPlacement: IconPlacement.bottom,
+                      iconPlacement: IconPlacement.right,
                       textStyle: Theme.of(context).textTheme.titleLarge,
                       tooltip: 'A cool tooltip',
                       type: ButtonTypes.text,
