@@ -1,7 +1,7 @@
 name: button_variant
 description: "Variante de Botão com customização mais intuitiva."
 publish_to: "none"
-version: 1.0.1
+version: 1.0.2
 homepage:
 
 environment:
@@ -11,6 +11,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  auto_size_text: ^3.0.0
 
 dev_dependencies:
   flutter_test:

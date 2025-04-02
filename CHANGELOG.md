@@ -1,3 +1,8 @@
+## 1.0.2
+
+- Adicionada opção de máximo de linhas.
+- Centralizado o alinhamento do rótulo.
+
 ## 1.0.1
 
 - Adicionadas opções de cores para botões desabilitados.

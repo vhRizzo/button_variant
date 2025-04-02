@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:button_variant/button_types.dart';
 import 'package:button_variant/icon_placement.dart';
 import 'package:flutter/material.dart';
@@ -19,6 +20,7 @@ class ButtonVariant extends StatefulWidget {
     this.disableLoadingAnimation = false,
     this.gap,
     this.loadingWidget,
+    this.maxLines,
     this.padding,
     this.scaler = 1.0,
     this.textStyle,
@@ -44,6 +46,7 @@ class ButtonVariant extends StatefulWidget {
   final bool disableLoadingAnimation;
   final double? gap;
   final Widget? loadingWidget;
+  final int? maxLines;
   final EdgeInsetsGeometry? padding;
 
   /// Escalador de tamanho do botão. Altera o tamanho da fonte em [scaler]x.
@@ -74,6 +77,9 @@ class _ButtonVariantState extends State<ButtonVariant> {
 
   /// Lacuna horizontal padrão do Material Design 3 entre o ícone e o rótulo de um botão.
   static const _defaultHorizontalGap = 8.0;
+
+  /// Tamanho padrão do ícone em um IconButton.
+  static const _defaultIconSize = 24.0;
 
   /// Lacuna vertical padrão entre o ícone e o rótulo do botão.
   static const _defaultVerticalGap = 4.0;
@@ -215,14 +221,15 @@ class _ButtonVariantState extends State<ButtonVariant> {
   }
 
   Widget _getChild(BuildContext context, {required Color foregroundColor}) {
+    final label_ = widget.label ?? '';
+
     final style = _getTextStyle(foregroundColor);
-    final icSize = widget.iconSize ?? (style.fontSize! + _iconGain);
+    final icSize = widget.iconSize ??
+        (label_.isEmpty ? _defaultIconSize : (style.fontSize! + _iconGain));
     final icColor = (widget.onPressed == null
             ? widget.disabledIconColor
             : widget.iconColor) ??
         foregroundColor;
-
-    final label_ = widget.label ?? '';
 
     if (label_.isEmpty) {
       return _getIcon(widget.icon, icColor, icSize);
@@ -247,7 +254,15 @@ class _ButtonVariantState extends State<ButtonVariant> {
           ? VerticalDirection.up
           : VerticalDirection.down,
       children: [
-        if (label_.isNotEmpty) Flexible(child: Text(label_, style: style)),
+        if (label_.isNotEmpty)
+          Flexible(
+            child: AutoSizeText(
+              label_,
+              maxLines: widget.maxLines,
+              style: style,
+              textAlign: TextAlign.center,
+            ),
+          ),
         if (label_.isNotEmpty && widget.icon != null)
           SizedBox(
             height: axis == Axis.vertical ? gap_ : null,
