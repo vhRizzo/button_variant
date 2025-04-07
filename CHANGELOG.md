@@ -1,3 +1,8 @@
+## 1.0.3
+
+- Removido redimencionamento automático do rótulo.
+- Adicionada opção de overflow do texto.
+
 ## 1.0.2
 
 - Adicionada opção de máximo de linhas.

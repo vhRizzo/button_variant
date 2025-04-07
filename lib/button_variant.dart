@@ -1,4 +1,3 @@
-import 'package:auto_size_text/auto_size_text.dart';
 import 'package:button_variant/button_types.dart';
 import 'package:button_variant/icon_placement.dart';
 import 'package:flutter/material.dart';
@@ -21,6 +20,7 @@ class ButtonVariant extends StatefulWidget {
     this.gap,
     this.loadingWidget,
     this.maxLines,
+    this.overflow = TextOverflow.ellipsis,
     this.padding,
     this.scaler = 1.0,
     this.textStyle,
@@ -47,6 +47,7 @@ class ButtonVariant extends StatefulWidget {
   final double? gap;
   final Widget? loadingWidget;
   final int? maxLines;
+  final TextOverflow overflow;
   final EdgeInsetsGeometry? padding;
 
   /// Escalador de tamanho do botão. Altera o tamanho da fonte em [scaler]x.
@@ -256,9 +257,10 @@ class _ButtonVariantState extends State<ButtonVariant> {
       children: [
         if (label_.isNotEmpty)
           Flexible(
-            child: AutoSizeText(
+            child: Text(
               label_,
               maxLines: widget.maxLines,
+              overflow: widget.overflow,
               style: style,
               textAlign: TextAlign.center,
             ),
