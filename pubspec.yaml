@@ -1,7 +1,7 @@
 name: button_variant
 description: "Variante de Botão com customização mais intuitiva."
 publish_to: "none"
-version: 1.0.3
+version: 1.0.4
 homepage:
 
 environment:
