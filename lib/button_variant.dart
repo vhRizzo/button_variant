@@ -27,6 +27,8 @@ class ButtonVariant extends StatefulWidget {
     this.tooltip,
     this.type = ButtonTypes.filled,
     required this.onPressed,
+    this.iconWidget,
+    this.labelWidget,
   });
 
   final IconData? icon;
@@ -61,6 +63,8 @@ class ButtonVariant extends StatefulWidget {
   final String? tooltip;
   final ButtonTypes type;
   final void Function()? onPressed;
+  final Widget? iconWidget;
+  final Widget? labelWidget;
 
   @override
   State<ButtonVariant> createState() => _ButtonVariantState();
@@ -92,8 +96,12 @@ class _ButtonVariantState extends State<ButtonVariant> {
 
   final _loading = ValueNotifier<bool>(false);
 
+  late bool _hasLabel;
+
   @override
   Widget build(BuildContext context) {
+    _hasLabel =
+        widget.labelWidget != null || (widget.label?.isNotEmpty ?? false);
     return Semantics(
       button: true,
       enabled: widget.onPressed != null,
@@ -166,9 +174,8 @@ class _ButtonVariantState extends State<ButtonVariant> {
 
     final child = _getChild(context, foregroundColor: fgColor);
     final style = _getButtonStyle(context, bgColor, fgColor);
-    final label_ = widget.label ?? '';
 
-    if (label_.isEmpty) {
+    if (!_hasLabel) {
       switch (widget.type) {
         case ButtonTypes.elevated:
         case ButtonTypes.text:
@@ -222,17 +229,17 @@ class _ButtonVariantState extends State<ButtonVariant> {
   }
 
   Widget _getChild(BuildContext context, {required Color foregroundColor}) {
-    final label_ = widget.label ?? '';
+    final hasIcon = widget.iconWidget != null || widget.icon != null;
 
     final style = _getTextStyle(foregroundColor);
     final icSize = widget.iconSize ??
-        (label_.isEmpty ? _defaultIconSize : (style.fontSize! + _iconGain));
+        (_hasLabel ? _defaultIconSize : (style.fontSize! + _iconGain));
     final icColor = (widget.onPressed == null
             ? widget.disabledIconColor
             : widget.iconColor) ??
         foregroundColor;
 
-    if (label_.isEmpty) {
+    if (!_hasLabel) {
       return _getIcon(widget.icon, icColor, icSize);
     }
 
@@ -255,22 +262,24 @@ class _ButtonVariantState extends State<ButtonVariant> {
           ? VerticalDirection.up
           : VerticalDirection.down,
       children: [
-        if (label_.isNotEmpty)
+        if (_hasLabel)
           Flexible(
-            child: Text(
-              label_,
-              maxLines: widget.maxLines,
-              overflow: widget.overflow,
-              style: style,
-              textAlign: TextAlign.center,
-            ),
+            child: widget.labelWidget ??
+                Text(
+                  widget.label!,
+                  maxLines: widget.maxLines,
+                  overflow: widget.overflow,
+                  style: style,
+                  textAlign: TextAlign.center,
+                ),
           ),
-        if (label_.isNotEmpty && widget.icon != null)
+        // TODO: Verificar se o `spacing` já não trata isso.
+        if (_hasLabel && hasIcon)
           SizedBox(
             height: axis == Axis.vertical ? gap_ : null,
             width: axis == Axis.horizontal ? gap_ : null,
           ),
-        if (widget.icon != null) _getIcon(widget.icon, icColor, icSize),
+        if (hasIcon) _getIcon(widget.icon, icColor, icSize),
       ],
     );
   }
@@ -291,7 +300,7 @@ class _ButtonVariantState extends State<ButtonVariant> {
         }
         return child!;
       },
-      child: Icon(widget.icon, color: color, size: size),
+      child: widget.iconWidget ?? Icon(widget.icon, color: color, size: size),
     );
   }
 
